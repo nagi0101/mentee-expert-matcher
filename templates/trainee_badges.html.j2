@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="{{ stylesheet_href }}">
+</head>
+<body>
+  <main class="document">
+    {% for page_badges in badges|batch(6) %}
+    <section class="badge-sheet">
+      <header class="print-header">
+        <p class="eyebrow">MENTEE BADGE PACK</p>
+        <h1>{{ page_title }}</h1>
+        <p>총 {{ badges|length }}명 · 4개 코호트 · 각 카드에 6라운드 이동 경로 포함</p>
+      </header>
+
+      <section class="badge-grid">
+        {% for badge in page_badges %}
+        <article class="badge-card trainee-badge {{ badge.theme_class }}">
+          <div class="badge-top">
+            <div>
+              <p class="badge-role">연수생</p>
+              <p class="badge-subtitle">Mentee Expert Matching</p>
+            </div>
+            <div class="badge-code">{{ badge.code }}</div>
+          </div>
+
+          <div class="badge-main">
+            <h2 class="person-name">{{ badge.name }}</h2>
+            {% if badge.has_org %}
+            <div class="person-org person-org-list {{ badge.interest_size_class }}" title="{{ badge.org }}">
+              {% for interest in badge.interest_items %}
+              <span
+                class="person-org-chip{% if interest.is_representative %} is-representative{% endif %}{% if interest.group_start %} is-group-start{% endif %}"
+                style="{{ interest.style }}"
+                data-interest-group="{{ interest.group_key }}"
+              >{{ interest.label }}</span>
+              {% endfor %}
+              {% if badge.interest_hidden_count %}
+              <span class="person-org-chip person-org-more">+{{ badge.interest_hidden_count }}</span>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                {% for step in badge.route %}
+                <th>R{{ step.round }}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for step in badge.route %}
+                <td>T{{ step.table }}</td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+        </article>
+        {% endfor %}
+      </section>
+    </section>
+    {% endfor %}
+  </main>
+</body>
+</html>

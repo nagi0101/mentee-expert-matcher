@@ -1,0 +1,1 @@
+"""Event badge generator package."""

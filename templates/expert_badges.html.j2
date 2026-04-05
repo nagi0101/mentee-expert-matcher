@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="{{ stylesheet_href }}">
+</head>
+<body>
+  <main class="document">
+    {% for page_badges in badges|batch(12) %}
+    <section class="badge-sheet">
+      <header class="print-header">
+        <p class="eyebrow">EXPERT BADGE PACK</p>
+        <h1>{{ page_title }}</h1>
+        <p>총 {{ badges|length }}명 · 최대 12명 · 각 엑스퍼트는 고정 테이블 운영</p>
+      </header>
+
+      <section class="badge-grid">
+        {% for badge in page_badges %}
+        <article class="badge-card expert-badge">
+          <div class="badge-top">
+            <div>
+              <p class="badge-role">Expert</p>
+              <p class="badge-subtitle">Fixed Table Host</p>
+            </div>
+            <div class="expert-table-chip">T{{ badge.table }}</div>
+          </div>
+
+          <div class="badge-main">
+            <h2 class="person-name">{{ badge.name }}</h2>
+            {% if badge.has_org %}
+            <div class="person-org person-org-list {{ badge.interest_size_class }}" title="{{ badge.org }}">
+              {% for interest in badge.interest_items %}
+              <span
+                class="person-org-chip{% if interest.is_representative %} is-representative{% endif %}{% if interest.group_start %} is-group-start{% endif %}"
+                style="{{ interest.style }}"
+                data-interest-group="{{ interest.group_key }}"
+              >{{ interest.label }}</span>
+              {% endfor %}
+              {% if badge.interest_hidden_count %}
+              <span class="person-org-chip person-org-more">+{{ badge.interest_hidden_count }}</span>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </article>
+        {% endfor %}
+      </section>
+    </section>
+    {% endfor %}
+  </main>
+</body>
+</html>

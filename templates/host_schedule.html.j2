@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="{{ stylesheet_href }}">
+</head>
+<body class="host-body">
+  <main class="document">
+    <section class="host-sheet">
+      <header class="host-topbar">
+        <div class="host-title-block">
+          <p class="eyebrow">HOST SCHEDULE</p>
+          <h1>{{ page_title }}</h1>
+          <p>각 라운드별 운영 매트릭스</p>
+        </div>
+
+        <aside class="host-legend" aria-label="표 읽는 법">
+          <p class="host-legend-title">읽는 법</p>
+          <ul class="host-legend-list">
+            <li>
+              <span class="host-legend-chip">LEFT</span>
+              <span>테이블과 고정 엑스퍼트</span>
+            </li>
+            <li>
+              <span class="host-code group-A">A</span>
+              <span>A조</span>
+            </li>
+            <li>
+              <span class="host-code group-B">B</span>
+              <span>B조</span>
+            </li>
+            <li>
+              <span class="host-code group-C">C</span>
+              <span>C조</span>
+            </li>
+            <li>
+              <span class="host-code group-D">D</span>
+              <span>D조</span>
+            </li>
+          </ul>
+        </aside>
+      </header>
+
+      <section class="host-board" aria-label="사회자용 전체 운영표">
+        <div class="host-board-corner">
+          <span class="host-board-label">TABLE</span>
+          <strong>고정 엑스퍼트</strong>
+        </div>
+
+        {% for round_number in host_matrix.round_numbers %}
+        <div class="host-round-head">
+          <span class="host-round-label">ROUND</span>
+          <strong>R{{ round_number }}</strong>
+        </div>
+        {% endfor %}
+
+        {% for row in host_matrix.table_rows %}
+        <div class="host-table-card">
+          <span class="host-table-number">T{{ row.table_number }}</span>
+          <div class="host-table-meta">
+            <span class="host-table-label">고정 엑스퍼트</span>
+            {% if row.has_experts %}
+            <div class="host-expert-list">
+              {% for expert in row.experts %}
+              <span class="host-expert-pill">{{ expert.name }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            <p class="host-empty">미배정</p>
+            {% endif %}
+          </div>
+        </div>
+
+        {% for cell in row.cells %}
+        <div class="host-slot">
+          <ul class="host-trainees">
+            {% for trainee in cell.trainees %}
+            <li class="host-trainee {{ trainee.theme_class }}">
+              <span class="host-code {{ trainee.theme_class }}">{{ trainee.code }}</span>
+              <span class="host-name">{{ trainee.name }}</span>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </section>
+    </section>
+  </main>
+</body>
+</html>

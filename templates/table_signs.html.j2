@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title }}</title>
+  <link rel="stylesheet" href="{{ stylesheet_href }}">
+</head>
+<body class="table-sign-body">
+  <main class="document">
+    {% for sign in signs %}
+    <section class="table-sign-page">
+      <article class="table-sign-fold">
+        <section class="table-panel visible-face">
+          <div class="panel-content">
+            <p class="panel-label">TABLE SIGN</p>
+            <div class="table-number">T{{ sign.table }}</div>
+            <div class="table-sign-experts">
+              {% if sign.has_slots %}
+              {% for expert in sign.experts %}
+              <div class="table-sign-expert{% if expert.is_empty %} empty{% endif %}">
+                {% if expert.is_empty %}
+                <strong aria-hidden="true">&nbsp;</strong>
+                {% else %}
+                <strong>{{ expert.name }}</strong>
+                {% if expert.has_org %}
+                <span>{{ expert.org }}</span>
+                {% endif %}
+                {% endif %}
+              </div>
+              {% endfor %}
+              {% else %}
+              <div class="table-sign-expert empty">
+                <strong>미배정</strong>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </section>
+
+        <section class="table-panel support-face">
+          <div class="panel-content">
+            <p class="panel-label">FOLD</p>
+            <h1>Table {{ sign.table }}</h1>
+            <p class="fold-note">이 면은 내부 지지면입니다. 점선을 따라 안쪽으로 접습니다.</p>
+          </div>
+        </section>
+
+        <section class="table-panel visible-face reverse-face">
+          <div class="panel-content flipped">
+            <p class="panel-label">TABLE SIGN</p>
+            <div class="table-number">T{{ sign.table }}</div>
+            <div class="table-sign-experts">
+              {% if sign.has_slots %}
+              {% for expert in sign.experts %}
+              <div class="table-sign-expert{% if expert.is_empty %} empty{% endif %}">
+                {% if expert.is_empty %}
+                <strong aria-hidden="true">&nbsp;</strong>
+                {% else %}
+                <strong>{{ expert.name }}</strong>
+                {% if expert.has_org %}
+                <span>{{ expert.org }}</span>
+                {% endif %}
+                {% endif %}
+              </div>
+              {% endfor %}
+              {% else %}
+              <div class="table-sign-expert empty">
+                <strong>미배정</strong>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </section>
+
+        <section class="table-panel glue-face">
+          <div class="panel-content">
+            <p class="panel-label">GLUE TAB</p>
+            <p class="glue-text">마지막 탭을 첫 번째 면 뒷면에 붙이면 삼각형으로 세울 수 있습니다.</p>
+          </div>
+        </section>
+      </article>
+    </section>
+    {% endfor %}
+  </main>
+</body>
+</html>
