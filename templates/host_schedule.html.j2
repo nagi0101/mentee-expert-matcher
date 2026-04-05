@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page_title }}</title>
   <link rel="stylesheet" href="{{ stylesheet_href }}">
+  <style>{{ group_style_css }}</style>
 </head>
 <body class="host-body">
   <main class="document">
@@ -13,7 +14,7 @@
         <div class="host-title-block">
           <p class="eyebrow">HOST SCHEDULE</p>
           <h1>{{ page_title }}</h1>
-          <p>각 라운드별 운영 매트릭스</p>
+          <p>{{ num_tables }}테이블 × {{ num_rounds }}라운드 운영 매트릭스</p>
         </div>
 
         <aside class="host-legend" aria-label="표 읽는 법">
@@ -23,22 +24,12 @@
               <span class="host-legend-chip">LEFT</span>
               <span>테이블과 고정 엑스퍼트</span>
             </li>
+            {% for label in group_labels %}
             <li>
-              <span class="host-code group-A">A</span>
-              <span>A조</span>
+              <span class="host-code group-{{ label }}">{{ label }}</span>
+              <span>{{ label }}조</span>
             </li>
-            <li>
-              <span class="host-code group-B">B</span>
-              <span>B조</span>
-            </li>
-            <li>
-              <span class="host-code group-C">C</span>
-              <span>C조</span>
-            </li>
-            <li>
-              <span class="host-code group-D">D</span>
-              <span>D조</span>
-            </li>
+            {% endfor %}
           </ul>
         </aside>
       </header>

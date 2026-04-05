@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page_title }}</title>
   <link rel="stylesheet" href="{{ stylesheet_href }}">
+  <style>{{ group_style_css }}</style>
 </head>
 <body>
   <main class="document">
-    {% for page_badges in badges|batch(12) %}
+    {% for page_badges in badges|batch(badges_per_page) %}
     <section class="badge-sheet">
       <header class="print-header">
         <p class="eyebrow">EXPERT BADGE PACK</p>
         <h1>{{ page_title }}</h1>
-        <p>총 {{ badges|length }}명 · 최대 12명 · 각 엑스퍼트는 고정 테이블 운영</p>
+        <p>총 {{ badges|length }}명 · 각 엑스퍼트는 고정 테이블 운영</p>
       </header>
 
       <section class="badge-grid">

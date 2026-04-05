@@ -1,25 +1,25 @@
-name,org,group,number
-김민수,프론트엔드/React.js/Next.js/디자인,A,1
-박서연,백엔드/Java/SpringBoot/MySQL,A,2
-이도윤,Data Engineering/AI/Python,A,3
-최하은,기획/PM/프로덕트 엔지니어/풀스택,A,4
-정지훈,백엔드/PostgreSQL/AWS/Infra,A,5
-윤채린,창업/기획/풀스택/PM,A,6
-한지민,프론트엔드/React.js/Next.js/디자인,B,1
-서준혁,백엔드/Nest/FastAPI/RAG,B,2
-강다은,Unity/Flutter/Android/C#,B,3
-오현우,Cloud/DevOps/AWS/Infra,B,4
-임서진,AI Agent Engineer/LLM/Python/백엔드,B,5
-조민재,기획/PM/PO/창업,B,6
-송예린,Data Engineering/MySQL/PostgreSQL/Python,C,1
-문태오,백엔드/Java/SpringBoot/JPA,C,2
-백수아,AI/ML/RL/Python/Kotlin,C,3
-신도현,풀스택/React.js/Next.js/FastAPI,C,4
-노유진,디자인/프론트엔드/Svelte/React.js,C,5
-장우진,창업/프로덕트 엔지니어/기획/백엔드,C,6
-김가은,Flutter/Android/iOS/App,D,1
-류시원,Data Engineering/AI/MLOps,D,2
-안예진,기획/창업/풀스택/PM,D,3
-황민석,백엔드/Infra/DevOps/AWS,D,4
-유서현,Unity/C/C++/Graphics,D,5
-차준서,AI Agent/백엔드/Python/FastAPI,D,6
+name,org
+김민수,프론트엔드/React.js/Next.js/디자인
+박서연,백엔드/Java/SpringBoot/MySQL
+이도윤,Data Engineering/AI/Python
+최하은,기획/PM/프로덕트 엔지니어/풀스택
+정지훈,백엔드/PostgreSQL/AWS/Infra
+윤채린,창업/기획/풀스택/PM
+한지민,프론트엔드/React.js/Next.js/디자인
+서준혁,백엔드/Nest/FastAPI/RAG
+강다은,Unity/Flutter/Android/C#
+오현우,Cloud/DevOps/AWS/Infra
+임서진,AI Agent Engineer/LLM/Python/백엔드
+조민재,기획/PM/PO/창업
+송예린,Data Engineering/MySQL/PostgreSQL/Python
+문태오,백엔드/Java/SpringBoot/JPA
+백수아,AI/ML/RL/Python/Kotlin
+신도현,풀스택/React.js/Next.js/FastAPI
+노유진,디자인/프론트엔드/Svelte/React.js
+장우진,창업/프로덕트 엔지니어/기획/백엔드
+김가은,Flutter/Android/iOS/App
+류시원,Data Engineering/AI/MLOps
+안예진,기획/창업/풀스택/PM
+황민석,백엔드/Infra/DevOps/AWS
+유서현,Unity/C/C++/Graphics
+차준서,AI Agent/백엔드/Python/FastAPI
